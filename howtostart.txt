@@ -1,0 +1,3 @@
+cd finalproj2023
+nodemon
+
