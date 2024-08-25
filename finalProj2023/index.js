@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //database imports
 var sqlDAO = require('./Backend/sqlDAO.js');
-const express = require('express');
+
 
 
 //connects application to port

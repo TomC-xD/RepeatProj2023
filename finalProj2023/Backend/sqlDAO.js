@@ -1,11 +1,10 @@
 
 var express = require('express');
 var app = express();
-require('dotenv').config();
 var pmysql = require('promise-mysql'); 
 var pool;
 const username = 'root';
-const password = '';
+const password = 'root';
 const database = 'proj2023';
 const host = 'localhost';
 const port = 3306;
@@ -38,32 +37,6 @@ function getStore() {
     })
 }
 
-/*
-//add a new store to the database using the values from the addStore page
-function addStore(sid, location, mgrid) {
-    return new Promise(async (resolve, reject) => {
-        try {
-            //Checks if the mgrid is already assigned to a store
-            const mgridExists = await pool.query("SELECT * FROM store WHERE mgrid = ?", [mgrid]);
-            if (mgridExists.length > 0) {
-                //If the manager ID is found, throw an error
-                throw new Error('Manager ID is already assigned to another store');
-            }
-
-            pool.query('INSERT INTO store (sid, location, mgrid) VALUES (?, ?, ?)', [sid, location, mgrid])
-                .then((data) => {
-                    resolve(data);
-                })
-                .catch(err => {
-                    reject(err);
-                })
-        } catch (err) {
-            console.error("Error adding store in SQL DAO:", err);
-            reject(err);
-        }
-    }
-    )
-}*/
 
 //delete a store from the database
 function deleteStore(sid) {
@@ -144,7 +117,7 @@ function checkProductInStores(pid) {
 
 
 module.exports = {
-    getStore, addStore, getStoreById, deleteStore, getAllProducts,
+    getStore, getStoreById, deleteStore, getAllProducts,
     deleteProduct, checkProductInStores
 };
 
